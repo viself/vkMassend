@@ -1,0 +1,221 @@
+body {
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#groups {
+  float: left;
+  width: 214px;
+  border: solid #F3F3F3;
+    border-width: 1px 1px 1px 1px;
+  border-color: rgba(100, 100, 100, 0.08);
+
+}
+
+#login {
+	display: none;
+  width: 290px;
+  height: 260px;
+  margin: auto;
+  border: solid #F3F3F3;
+  border-width: 1px 1px 1px 1px;
+  border-color: rgba(100, 100, 100, 1);
+
+}
+
+.flat_button {
+  padding: 6px 16px 7px 16px;
+  margin: 0;
+  font-size: 11px;
+  display: inline-block;
+  zoom: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
+  vertical-align: top;
+  overflow: visible;
+  line-height: 13px;
+  text-decoration: none;
+  background: none;
+  background-color: #6383a8;
+  color: #FFF;
+  border: 0;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: background-color 100ms ease-in-out;
+  -khtml-transition: background-color 100ms ease-in-out;
+  -moz-transition: background-color 100ms ease-in-out;
+  -ms-transition: background-color 100ms ease-in-out;
+  -o-transition: background-color 100ms ease-in-out;
+  transition: background-color 100ms ease-in-out;
+}
+
+#raz {
+  height: 27px;
+  margin-left: 62px;
+  margin-top: 4px;
+}
+
+#frm1 {
+	  margin-left: 34px;
+  margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+#frm1 input {
+	width: 210px;
+}
+
+#dva {
+  margin-left: 106px;
+  width: 64px;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+
+#add_message {
+	width: 400px;
+  margin-left: 304px;
+}
+
+#message {
+	height: 100px;
+  width: 400px;
+}
+
+#add_video {
+	background-color: #E3E5E8;
+  color: #1442A6;
+    font-size: 13px;
+    margin-top: 7px;
+    float: right;
+    margin-right: 6px;
+
+}
+
+#add_newmessage {
+	float: right;
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+#atachments{
+	  width: 234px;
+  float: left;
+    margin-top: 7px;
+}
+
+.video_url {
+	display: block;
+}
+
+.text_dec {
+	text-decoration: none;
+	margin-right: 7px;
+}
+
+A:visited {
+    color: blue; /* Цвет посещенных ссылок */
+   }
+
+ P {
+ 	margin: 7px;
+ }
+#msg_attach a {
+	display: table;
+	  margin-top: 2px;
+}
+
+#msg_box {
+	margin-left: 236px;
+	width: 540px;
+}
+.msg {
+	background-color: #EEF1F9;
+	margin-bottom: 13px;
+	  position: relative;
+	    padding: 1px;
+}
+
+#messages a {
+	position: absolute;
+  right: 0px;
+  top: 6px;
+}
+
+#messages {
+	overflow: auto;
+	height: 500px
+}
+#msg_attach a {
+	position: inherit;
+}
+
+#msg_attach {
+margin-left: 4px;
+}
+
+.grpclss {
+  background-color: #F5F5E9;
+  margin-top: 10px;
+  position: relative;
+}
+
+.grpclssname {
+  position: absolute;
+  top: 8px;
+  left: 58px;
+}
+
+.grpclssDel{
+	color: red;
+  position: absolute;
+  right: 0px;
+  bottom: 2px;
+
+}
+
+#grpText {
+	  margin-left: 22px;
+}
+
+#addGrp {
+	  margin-top: 16px;
+}
+
+#add_newGrp {
+	  margin-top: 5px;
+  margin-left: 113px;
+}
+
+#add_newPrGrp {
+  margin-left: 76px;
+  margin-top: -24px;
+}
+
+#grpPrText {
+	  margin-left: 21px;
+}
+
+#addPrGrp {
+	  margin-top: 10px;
+    display: none;
+}
+
+#clr_slct {
+  margin-top: 5px;
+  margin-left: 23px;
+}
+
+#exit_btn{
+position: absolute;
+  right: 0px;
+  top: 0px;
+  border-radius: 0px;
+  font-size: 18px;
+}

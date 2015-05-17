@@ -1,0 +1,110 @@
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+<button id="exit_btn" class="flat_button" onclick="exit()">Выход</button>
+<script src="jquery-2.1.3.min.js"></script>
+<script src="index.js"></script>
+
+
+
+<div id="groups">
+<div style="
+    background-color: #6383a8;    color: #FFF;
+    text-align: center;
+    line-height: 23px;
+    border-radius: 4px;
+    height: 23px;
+">Группы</div>
+<div id="grp_cont">
+</div>
+
+<div id="addPrGrp">
+<input id= "grpPrText" type="text"value="">
+<input id="clr_slct" type="color">
+<button id="add_newPrGrp" class="flat_button" onclick="addGrp()">Добавить группу</button>
+</div>
+
+
+<div id="addGrp">
+<input id= "grpText" type="text"value="">
+<button id="add_newGrp" class="flat_button" onclick="addGrp()">Добавить</button>
+</div>
+</div>
+
+
+<div  id="msg_box">
+<div style="
+  background-color: #6383a8;
+  color: #FFF;
+  text-align: center;
+  line-height: 23px;
+  border-radius: 4px;
+  height: 23px;
+  margin-bottom: 9px;
+">Сообщения</div>
+
+
+<div id="login">
+<ol>
+    <li>Нажмите кнопку "Установить приложение"</li>
+    <li>Скопируйте ссылку из окна браузера, после установки приложения</li>
+    <li>Вставьте ссылку в поле снизу и нажмите кнопку "Войти"</li>
+</ol>
+<button onclick="openInstallWindow()" class="flat_button" id="raz">Установить приложение</button>
+<form id="frm1" action="form_action.asp">
+<input type="text" name="fname" value="">
+</form> 
+<div id="error"></div>
+<button id="dva" class="flat_button" onclick="pasceURL()">Войти</button>
+</div>
+
+
+<div id="messages">
+</div>
+</div>
+
+<div id="add_message">
+​<textarea id="message" rows="10" name="fname" cols="70"></textarea>
+<div id="atachments"></div>
+<button id="add_newmessage" class="flat_button" onclick="addMessage()">Добавить</button>
+<button id="add_video" class="flat_button" onclick="addVideo()">Видео</button>
+<button id="sendAll" class="flat_button" onclick="sendAll()" style="
+  float: right;
+  margin-top: 10px;
+  clear: right;
+  background-color: #7CAE82;
+  font-size: 13px;
+">Отправить все !</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (window.localStorage.getItem("access_token") == null) 
+	{
+		$( "#login" ).show();
+	}
+
+loudGrp();
+loudMsgs();
+
+var VideoCount = 0;
+
+
+
+</script>
+
+
+</body>
+</html>
