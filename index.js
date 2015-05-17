@@ -160,6 +160,62 @@ function loudGrp() {
 
 }
 
+function exportMsg() {
+
+  var regMes = /message/;
+
+  var jsonMsgs = {
+    messages: []
+	};
+
+
+
+  for (var i = 0; i < localStorage.length; i++) {
+     if (localStorage.key(i).search(regMes) != -1) {
+      var msgId = localStorage.key(i);
+      var msgCont = window.localStorage.getItem(msgId);
+
+ 	  jsonMsgs.messages.push({ 
+        "id" : msgId,
+        "content"  : msgCont
+    });
+
+    }    
+  }
+  console.log(jsonMsgs.messages);
+download("messages.txt",JSON.stringify(jsonMsgs));
+
+}
+
+
+function exportGrp() {
+
+  var regMes = /grp/;
+
+  var jsonGrps = {
+    groups: []
+  };
+
+
+
+  for (var i = 0; i < localStorage.length; i++) {
+     if (localStorage.key(i).search(regMes) != -1) {
+      var grpId = localStorage.key(i);
+      var grpCont = window.localStorage.getItem(grpId);
+
+    jsonGrps.groups.push({ 
+        "id" : grpId,
+        "content"  : grpCont
+    });
+
+    }    
+  }
+  console.log(jsonGrps.groups);
+download("groups.txt",JSON.stringify(jsonGrps));
+
+}
+
+
 function addGrp() {
 
 if ($("#grpText").val()) {
@@ -245,3 +301,78 @@ function exit() {
 location.reload();
 }
 
+
+function download(filename, text) {
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  pom.setAttribute('download', filename);
+
+  pom.style.display = 'none';
+  document.body.appendChild(pom);
+
+  pom.click();
+
+  document.body.removeChild(pom);
+}
+
+
+
+
+function loadedGrps(evt)
+{
+  // Obtain the read file data    
+  var fileString = evt.target.result;
+  var jsonObj = $.parseJSON(fileString);
+
+  for (var i = 0; i < jsonObj.groups.length;i++) {
+  	//alert(jsonObj.groups[i].content);
+  	if (window.localStorage.getItem(jsonObj.groups[i].id) === null) {
+  		window.localStorage.setItem(jsonObj.groups[i].id, jsonObj.groups[i].content);
+  	}
+
+  }
+  location.reload();
+
+  
+}
+
+
+function loadedMsgs(evt)
+{
+  // Obtain the read file data    
+  var fileString = evt.target.result;
+  var jsonObj = $.parseJSON(fileString);
+
+
+  var regMes = /message/;
+  var messArr = [];
+
+
+  for (var i = 0; i < localStorage.length; i++) {
+     if (localStorage.key(i).search(regMes) != -1) {
+      var msgId = localStorage.key(i);
+
+       msgId = msgId.substring(7);
+       messArr.push(msgId);
+    }    
+  }
+  messArr.sort();
+  var msgID = 1;
+  if (parseInt(messArr[messArr.length-1])) msgID = parseInt(messArr[messArr.length-1]) + 1;
+
+
+
+  for (var i = 0; i < jsonObj.messages.length;i++) {
+    
+  window.localStorage.setItem("message"+msgID, jsonObj.messages[i].content);
+  msgID++;
+  }
+  location.reload();
+
+  
+}
+
+function removeAll () {
+  localStorage.clear();
+  location.reload();
+}

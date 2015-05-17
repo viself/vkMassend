@@ -6,6 +6,18 @@
 </head>
 <body>
 <button id="exit_btn" class="flat_button" onclick="exit()">Выход</button>
+<button id="exportGrp_btn" class="flat_button" onclick="exportGrp()">Сохранить группы</button>
+<button id="exportMsg_btn" class="flat_button" onclick="exportMsg()">Сохранить Сообщения</button>
+<div class="flat_button" id="load_GrpCont" >
+<p>Загрузить группы</p>
+<input type="file" id="load_Grp"  multiple>
+</div>
+<div class="flat_button" id="load_MsgCont" >
+<p>Загрузить сообщения</p>
+<input type="file" id="load_MsgFile"  multiple>
+</div>
+<button id="removeAll" class="flat_button" onclick="removeAll()">Удалить все</button>
+
 <script src="jquery-2.1.3.min.js"></script>
 <script src="index.js"></script>
 
@@ -100,6 +112,60 @@ loudGrp();
 loudMsgs();
 
 var VideoCount = 0;
+
+
+var control = document.getElementById("load_Grp");
+control.addEventListener("change", function(event) {
+    // Когда происходит изменение элементов управления, значит появились новые файлы
+        file = control.files[0];
+        //console.log(file); 
+  
+        //console.log(control.result);
+  var reader;
+  try
+  {
+    reader = new FileReader();
+  }catch(e)
+  {
+    document.getElementById('output').innerHTML = 
+      "Error: seems File API is not supported on your browser";
+    return;
+  }
+  
+  // Read file into memory as UTF-8      
+  reader.readAsText(file, "UTF-8");
+  
+  // Handle progress, success, and errors
+  reader.onload = loadedGrps;
+
+}, false);
+
+
+
+var contr = document.getElementById("load_MsgFile");
+contr.addEventListener("change", function(event) {
+    // Когда происходит изменение элементов управления, значит появились новые файлы
+        file = contr.files[0];
+        //console.log(file); 
+  
+        //console.log(control.result);
+  var reader;
+  try
+  {
+    reader = new FileReader();
+  }catch(e)
+  {
+
+    return;
+  }
+  
+  // Read file into memory as UTF-8      
+  reader.readAsText(file, "UTF-8");
+  
+  // Handle progress, success, and errors
+  reader.onload = loadedMsgs;
+
+}, false);
 
 
 
