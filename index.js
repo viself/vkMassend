@@ -232,9 +232,7 @@ var grpI = grpId.substring(3);
     }   
   }
 
-  	$( "#"+grpId).css("background-color", "#C6FACC");
-
-  
+  	$( "#"+grpId).css("background-color", "#C6FACC"); 
 
     }    
   }
