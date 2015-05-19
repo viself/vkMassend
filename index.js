@@ -244,6 +244,11 @@ function dellMess(id) {
 location.reload();
 }
 
+function showData(data){
+	sleep(400);
+  	console.log(data);
+  }
+
 function sendAll() {
 	
     var regMes = /grp/;
@@ -276,12 +281,10 @@ function sendAll() {
 
 var grpI = grpId.substring(3);
 
-  $.ajax({
+  var req = $.ajax({ 
   url: "https://api.vk.com/method/wall.post?owner_id=-"+grpI+"&message="+msgtxt+"&attachments="+msgvideo+"&from_group=1&v=5.29&access_token="+window.localStorage.getItem("access_token"),
   dataType: 'jsonp',
-  success: function(data){
-  	console.log(data);
-  }
+  success: showData
 });
 
 
@@ -376,3 +379,9 @@ function removeAll () {
   localStorage.clear();
   location.reload();
 }
+
+
+function sleep(ms) {
+ms += new Date().getTime();
+while (new Date() < ms){}
+} 
